@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/categories_style.css') }}">
+<header
+class="container">
+
+    <div style="color: #8BC34A;">
+
+        <form method="post">
+            <h1>Продукты</h1>
+          <label>
+            <input  name="name" id="name" type="text" placeholder="Название продукта" />
+          </label>
+          <button>Поиск</button>
+            {% if admin %}
+            </br> </br>
+             <label>
+              <input class="typeahead"  name="manufacturer" id="manufacturer"  type="text" placeholder="Название производителя" />
+            </label>
+            <label>
+              <input class="typeahead"  name="country" id="country"  type="text" placeholder="Город изготовления" />
+            </label>
+            <label>
+              <input class="typeahead"  name="price" id="price"  type="text" placeholder="Цена продукта" />
+            </label>
+            <label>
+              <input class="typeahead"  name="product_name" id="product_name"  type="text" placeholder="Название продукта" />
+            </label>
+            </br>  </br>
+            <button>Создать новый продукт</button>
+              {% endif %}
+        </form>
+
+        <ul class="picture-grid">
+          {% for product in products %}
+          <li>
+              <ul class="navbar list-unstyle list-inline text-right">
+          <a href="{{ url_for('product_card', id=product['product_id']) }}">  {{ product['product_name'] }} </a>
+              </ul>
+          </li>
+           {% endfor %}
+        </ul>
+
+              </div>
+</header>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/categories_style.css') }}">
+<header
+class="container">
+
+    <div style="color: #8BC34A;">
+       <form><h1>Ваши заказы</h1></form>
+        <ul class="picture-grid">
+          {% for order in orders %}
+
+              <ul class="navbar list-unstyle list-inline text-right">
+                  <li>
+          <a href="{{ url_for('delete_order', id=order['order_id'], status=order['status']) }}" >  {{ order['order_date'] }} {{ order['status'] }}  Сумма: {{ order['amount'] }} р. </a>
+                  </li>
+              </ul>
+           {% endfor %}
+        </ul>
+
+
+          </div>
+</header>
+
+
+{% endblock %}

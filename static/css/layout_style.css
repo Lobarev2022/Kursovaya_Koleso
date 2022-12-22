@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.thumbnail img {
+  width: 100%;
+  display: block;
+}
+.jumbotron {
+  min-height: 650px;
+  background: url("http://stepzapp.com/blog/wp-content/uploads/Colourful-Vegetable.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container {
+  max-width: 990px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.row {
+  margin: 0 -15px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.col {
+  padding: 0 15px;
+  float: left;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.list-unstyle {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.list-inline li {
+  display: inline-block;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+text-left {
+  text-align: left;
+}
+header {
+  height: 60px;
+}
+.logo {
+  font-size: 3em;
+  color: #8bc34a;
+}
+.navbar a {
+  text-decoration: none;
+  cursor: pointer;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 25px;
+  display: inline-block;
+  color: #8bc34a;
+}
+.navbar a:hover {
+  background-color: #8bc34a;
+  color: #fff;
+}
+.products {
+  padding: 50px 0;
+}
+h2 {
+  font-size: 2.5em;
+  color: #8BC34A;
+  margin: 0 auto 30px;
+}
+footer {
+  padding: 20px 0;
+  background: #8bc34a;
+  color: #fff;
+}
+@media (max-width: 479px) {
+  .col-4,
+  .col-8 {
+    width: 100%;
+  }
+  .logo {
+    font-size: 2em;
+  }
+  .jumbotron {
+    min-height: 400px;
+  }
+  .products .thumbnail {
+    margin-bottom: 10px;
+  }
+}

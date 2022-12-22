@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_for_button.css') }}">
+<div style="text-align:center">
+    </br></br></br>
+<h2>Удалить товар из корзины?</h2>
+    <form method="post">
+       <input style="margin: 0px 8px" type="submit" name="no" class="btn btn-success" value="No"/>
+        <input style="margin: 0px 8px" type="submit" name="yes" class="btn btn-danger" value="Yes"/>
+        </form>
+
+</div>
+
+{% endblock %}

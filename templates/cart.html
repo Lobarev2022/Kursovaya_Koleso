@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/categories_style.css') }}">
+<header
+class="container">
+
+    <div style="color: #8BC34A;">
+       <form><h1>Продукты в корзине</h1></form>
+        <ul class="picture-grid">
+          {% for product in products %}
+          <li>
+              <ul class="navbar list-unstyle list-inline text-right">
+          <a href="{{ url_for('delete_from_cart', id=product[2]) }}">  {{ product['product_name'] }} за {{ product['price'] }} рублей </a>
+              </ul>
+          </li>
+           {% endfor %}
+        </ul>
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/style_for_button.css') }}">
+    <form method="post">
+        <h1>Итого: {{total_amount }} рублей</h1>
+      <input style="margin: 0px 8px" type="submit" name="order" class="btn btn-success" value="Оформить заказ"/>
+    </form>
+          </div>
+</header>
+
+
+{% endblock %}

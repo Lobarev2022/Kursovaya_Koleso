@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/categories_style.css') }}">
+<header
+class="container">
+
+    <div style="color: #8BC34A; margin: 80px 0px;">
+   <form method="post"><h1>Информация о продукте</h1>
+     <li><a> Название: {{ product_info['product_name'] }} </a><br/></li>
+     <li> <a > Производитель: {{ product_info['manufacturer'] }} </a><br/></li>
+     <li> <a > Город производства: {{ product_info['country'] }} </a><br/></li>
+      <li><a > Цена: {{ product_info['price'] }} рублей </a><br/></li>
+      <li> <a > Рейтинг: {{ product_rate }}  </a><br/></li>
+       {% if admin %}
+       </br>
+             <label>
+              <input class="typeahead"  name="new_name" id="new_name"  type="text" placeholder="Новое название" />
+            </label>
+            <button>Переименовать продукт</button>
+
+              {% endif %}
+      <ul class="navbar ">
+        <a style="background-color: #444444;" href="{{ url_for('add_to_cart', id=id)  }}">Добавить в корзину</a>
+      </ul>
+
+
+</form>
+              </div>
+</header>
+
+
+{% endblock %}

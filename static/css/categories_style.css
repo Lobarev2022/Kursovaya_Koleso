@@ -1,0 +1,35 @@
+
+form {
+  width: 500px;
+  text-align: center;
+  margin: 20px 150px;
+}
+
+  input {
+    padding: 8px;
+    border: 1px solid #74B20E;
+    border-radius: 2px;
+  }
+
+  button {
+    background-color: #74B20E;
+    border: none;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 2px;
+  }
+
+.picture-grid {
+  list-style: none;
+  width: 500px;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+
+  img {
+    max-width: 100%;
+  }

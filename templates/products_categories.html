@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+  
+{% block content %}
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/categories_style.css') }}">
+<header
+class="container">
+
+    <div style="color: #8BC34A;">
+        <form method="post">
+            <h1>Категории</h1>
+          <label>
+            <input class="typeahead"  name="name" id="name"  type="text" placeholder="Название категории" />
+          </label>
+          <button>Поиск</button>
+             {% if admin %}
+            </br> </br>
+             <label>
+              <input class="typeahead"  name="category" id="category"  type="text" placeholder="Название категории" />
+            </label>
+            <button>Создать новую категорию</button>
+              {% endif %}
+        </form>
+        <ul class="picture-grid">
+          {% for category in categories %}
+          <li>
+              <ul class="navbar list-unstyle list-inline text-right">
+          <a href="{{ url_for('products_in_category', id=category[0]) }}">  {{ category[1] }} </a>
+              </ul>
+          </li>
+           {% endfor %}
+        </ul>
+    </div>
+
+    </header>
+{% endblock %}

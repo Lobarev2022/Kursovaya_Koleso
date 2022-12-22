@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout_style.css') }}">
+
+<header
+class="container">
+
+  <div class="row">
+    <div class="logo col col-4">
+      <span>Кушать</span>
+    </div>
+    <nav class="col col-8">
+      <ul class="navbar list-unstyle list-inline text-right">
+        <li><a href="{{ url_for('home') }}">Домой</a></li>
+          <li><a href="{{ url_for('profile') }}">Профиль</a></li>
+          <li><a href="{{ url_for('orders') }}">Заказы</a></li>
+        <li><a href="{{ url_for('products_categories') }}">Каталог продуктов</a></li>
+          <li><a href="{{ url_for('cart') }}">Корзина</a></li>
+        <li><a href="{{ url_for('logout') }}" >Выход</a></li>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+ </head>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            {% if category == "error" %}
+            <div id="error-msg" class="alert alert-danger signup-alert m-auto text-center"
+                 style="position: absolute; left: 58.5%; transform: translate(-50%, 0);" role="alert">
+              {{ message }}
+                     <script> window.scrollTo({top: document.body.scrollHeight, behavior: 'instant'}); </script>
+            </div>
+            {% endif %}
+            {% if category == "success" %}
+            <div id="success-msg" class="alert alert-success signup-alert m-auto text-center" role="alert"
+                 style="position: absolute; left: 58.5%; transform: translate(-50%, 0);">
+              {{ message }}
+                <script> window.scrollTo({top: document.body.scrollHeight, behavior: 'instant'}); </script>
+            </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+ <script
+         type="text/javascript">window.setTimeout("document.getElementById('error-msg').style.display='none';", 1700);
+         type="text/javascript">window.setTimeout("document.getElementById('success-msg').style.display='none';", 1700);
+ </script>
+
+
+{% block content %}{% endblock %}
+ </body>
+</html>

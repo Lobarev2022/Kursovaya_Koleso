@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<header
+class="container">
+    <div style="color: #8BC34A;">
+            <h1>Данные профиля</h1>
+            <div>
+                <table>
+                    <tr>
+                        <td>ФИО:&nbsp</td>
+                        <td>{{ account['user_name'] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Логин: &nbsp</td>
+                        <td>{{ account['user_login'] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Сумма потраченных денег: &nbsp</td>
+                        <td>{{ sum }}</td>
+                    </tr>
+                    <tr>
+                        <td>Количество заказов: &nbsp</td>
+                        <td>{{ count }}</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+</header>
+{% endblock %}

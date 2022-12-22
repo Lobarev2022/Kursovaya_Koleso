@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/categories_style.css') }}">
+<header
+class="container">
+
+    <div style="color: #8BC34A; margin: 80px 0px;">
+   <form><h1>Информация о продуктах в заказе</h1>
+     {% for product_info in products_info %}
+     <li><a> Название: {{ product_info['product_name'] }} </a><br/>
+      <a > Производитель: {{ product_info['manufacturer'] }} </a><br/>
+      <a > Город производства: {{ product_info['country'] }} </a><br/>
+      <a > Цена: {{ product_info['price'] }} рублей </a></li>
+       {%if status == 'Delivered' %}
+                                <link rel="stylesheet" href="{{ url_for('static', filename='css/stars_rating.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style_for_button.css') }}">
+        <ul class="navbar">
+                        <a href="{{ url_for('rate', id=product_info['product_id']) }}">Оцените товар:</a>
+        </ul>
+                        <br/>
+       {% else %}
+       <br/>
+              {%endif %}
+
+      {% endfor %}
+
+
+</form>
+              </div>
+</header>
+
+
+{% endblock %}

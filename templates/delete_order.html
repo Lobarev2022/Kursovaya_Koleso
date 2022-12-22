@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_for_button.css') }}">
+<div style="text-align:center">
+
+<h2  style="margin:60px 0px ">Посмотреть продукты в заказе?</h2>
+<form method="post">
+    <input style="margin: 0px 0px" type="submit" name="products" class="btn btn-success" value="О заказе"/>
+    </form>
+
+</br>
+    {% if status == 'Processing' %}
+<h2>Отменить заказ?</h2>
+    <form method="post">
+       <input style="margin: 0px 8px" type="submit" name="no" class="btn btn-success" value="Нет"/>
+        <input style="margin: 0px 8px" type="submit" name="yes" class="btn btn-danger" value="Да"/>
+        </form>
+{% endif %}
+</div>
+
+</div>
+
+{% endblock %}
